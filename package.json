@@ -1,5 +1,5 @@
 {
-	"name": "instagram_scrapper",
+	"name": "simple_web_scrapper",
 	"version": "1.0.0",
 	"main": "./dist/server.js",
 	"author": "Arthur Fernandes <arthurbpfernandes@gmail.com>",
