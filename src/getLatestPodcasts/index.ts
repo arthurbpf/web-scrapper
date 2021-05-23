@@ -13,6 +13,12 @@ interface Podcast {
 }
 
 export default async function getLatestPodcasts(req: Request, res: Response) {
+	const { description: descriptionQuery } = req.query;
+
+	if (descriptionQuery && typeof descriptionQuery !== 'string') {
+		throw new Error('Invalid query');
+	}
+
 	const $ = cheerio.load((await api.get('Podcasts.aspx')).data);
 
 	let podcasts: Podcast[] = [];
@@ -50,9 +56,9 @@ export default async function getLatestPodcasts(req: Request, res: Response) {
 		}),
 	);
 
-	if (req.query?.description) {
+	if (descriptionQuery) {
 		podcasts = podcasts.filter((podcast) =>
-			podcast.description?.includes(req.query.description),
+			podcast.description?.includes(descriptionQuery),
 		);
 	}
 

@@ -14,6 +14,12 @@ interface Article {
 }
 
 export default async function getLatestArticles(req: Request, res: Response) {
+	const { author: authorQuery } = req.query;
+
+	if (authorQuery && typeof authorQuery !== 'string') {
+		throw new Error('Invalid query');
+	}
+
 	const $ = cheerio.load((await api.get('Articles_Thumbs.aspx')).data);
 
 	let articles: Article[] = [];
@@ -36,6 +42,12 @@ export default async function getLatestArticles(req: Request, res: Response) {
 			timestamp: new Date(),
 		};
 	});
+
+	if (authorQuery) {
+		articles = articles.filter((article) =>
+			article.author.includes(authorQuery),
+		);
+	}
 
 	res.json(articles);
 }
