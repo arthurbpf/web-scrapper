@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import getLatestArticles from './getLatestArticles';
 
 if (process.env.NODE_ENV !== 'production') {
 	dotenv.config();
@@ -7,10 +8,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 const server = express();
 
-server.get('/', (req, res) => {
-	res.send('SEND ITTTTT');
-});
+server.get('/latest-articles', getLatestArticles);
 
 server.listen(process.env.PORT || 3333, () =>
-	console.log('Server started! 🏁')
+	console.log('Server started! 🏁'),
 );
