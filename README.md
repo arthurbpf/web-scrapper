@@ -19,7 +19,7 @@ Para servir as informações, foram disponibilizadas duas rotas.
 
 Irá trazer as informações dos últimos artigos disponibilizados no site, juntamente de um timestamp identificando o horário da busca das informações.
 
-A rota aceita um único query param, `author` que irá filtrar apenas os artigos cujo o nome do autor contenha a string enviada por parâmetro.
+A rota aceita um único query param, `author` que irá filtrar apenas os artigos cujo nome do autor contenha a string enviada por parâmetro.
 
 ### `/latest-podcasts`
 
