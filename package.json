@@ -9,9 +9,7 @@
 		"build-ts": "tsc",
 		"postinstall": "npm run build-ts",
 		"start": "npm run serve",
-		"serve": "node dist/server.js",
-		"watch-node": "nodemon dist/server.js",
-		"watch-ts": "tsc -w"
+		"serve": "node dist/server.js"
 	},
 	"devDependencies": {
 		"@types/express": "^4.17.11",
@@ -23,7 +21,6 @@
 		"axios": "^0.21.1",
 		"cheerio": "^1.0.0-rc.9",
 		"date-fns": "^2.21.3",
-		"dotenv": "^10.0.0",
 		"express": "^4.17.1"
 	}
 }

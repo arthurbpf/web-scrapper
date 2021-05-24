@@ -1,11 +1,6 @@
 import express from 'express';
-import dotenv from 'dotenv';
 import getLatestArticles from './getLatestArticles';
 import getLatestPodcasts from './getLatestPodcasts';
-
-if (process.env.NODE_ENV !== 'production') {
-	dotenv.config();
-}
 
 const server = express();
 
